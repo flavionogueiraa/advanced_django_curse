@@ -3,6 +3,7 @@ Favor colocar os nomes das importações em ordem alfabética para uma melhor or
 '''
 from .views import articles
 from .views import fname
+from .views import fname2
 from .views import hello
 
 from django.contrib import admin
@@ -12,5 +13,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', hello),
     path('articles/<int:year>/', articles),
-    path('pessoa/<str:nome>/', fname),
+    path('pessoa/<str:nome>/', fname2),
 ]

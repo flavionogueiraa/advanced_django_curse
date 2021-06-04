@@ -3,9 +3,16 @@ Favor colocar os nomes das importações em ordem alfabética para uma melhor or
 '''
 
 from django.http import HttpResponse
+from django.shortcuts import render
 
 def hello(request):
-    return HttpResponse('Hello, World!')
+    context = {}
+
+    return render(
+        request,
+        'index.html',
+        context
+    )
 
 def articles(request, year=None):
     return HttpResponse('O ano enviado foi {}'.format(year))
@@ -30,3 +37,16 @@ def fname(request, nome):
         return HttpResponse('A pessoa foi encontrada, ela tem {} anos.'.format(result['idade']))
     else:
         return HttpResponse('Pessoa não encontrada')
+
+def fname2(request, nome):
+    idade = ler_do_banco(nome)['idade']
+
+    context = {
+        'idade': idade,
+    }
+
+    return render(
+        request,
+        'pessoa.html',
+        context
+    )

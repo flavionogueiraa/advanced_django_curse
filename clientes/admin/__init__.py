@@ -2,6 +2,8 @@
 Favor colocar as importações em ordem alfabética para uma melhor organização
 '''
 
-__all__ = [
+from .cliente_admin import ClienteAdmin
 
+__all__ = [
+    ClienteAdmin,
 ]

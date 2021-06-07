@@ -7,6 +7,8 @@ from .views import fname2
 from .views import hello
 
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 
 urlpatterns = [
@@ -14,4 +16,4 @@ urlpatterns = [
     path('hello/', hello),
     path('articles/<int:year>/', articles),
     path('pessoa/<str:nome>/', fname2),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

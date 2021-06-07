@@ -2,7 +2,7 @@
 Favor colocar as importações em ordem alfabética para uma melhor organização
 '''
 
-from clientes.models import Person
+from ..models import Person
 from django.contrib import admin
 
 @admin.register(Person)

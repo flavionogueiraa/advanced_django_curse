@@ -14,6 +14,6 @@ def persons_list(request):
 
     return render(
         request,
-        'pessoa.html',
+        'person.html',
         context
     )

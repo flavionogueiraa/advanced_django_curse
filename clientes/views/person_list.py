@@ -5,7 +5,7 @@ Favor colocar as importações em ordem alfabética para uma melhor organizaçã
 from ..models import Person
 from django.shortcuts import render
 
-def persons_list(request):
+def person_list(request):
     persons = Person.objects.all()
 
     context = {
@@ -14,6 +14,6 @@ def persons_list(request):
 
     return render(
         request,
-        'person.html',
+        'person_list.html',
         context
     )

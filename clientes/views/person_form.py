@@ -6,14 +6,14 @@ from ..forms import PersonForm
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 
-def person_create(request):
+def person_form(request):
     if request.method == 'POST':
-        form = PersonForm(request.POST, request.FILES)
+        form = PersonForm(request.POST or None, request.FILES or None)
 
         if form.is_valid():
             form.save()
             return redirect(reverse_lazy(
-                'persons_list'
+                'person_list'
             ))
     else:
         form = PersonForm(None)
@@ -24,6 +24,6 @@ def person_create(request):
 
     return render(
         request,
-        'person_create.html',
+        'person_form.html',
         context
     )

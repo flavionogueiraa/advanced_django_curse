@@ -3,8 +3,10 @@ Favor colocar as importações em ordem alfabética para uma melhor organizaçã
 '''
 
 from ..models import Person
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
+@login_required
 def person_list(request):
     persons = Person.objects.all()
 

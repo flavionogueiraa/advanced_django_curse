@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block content %}
+    <h1>Login</h1>
+    <div class="row">
+        <div class="col-12">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-12">
+                        {{form|bootstrap}}
+                    </div>
+                    <div class="col-12" style="text-align: end;">
+                        <hr>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

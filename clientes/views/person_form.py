@@ -3,9 +3,11 @@ Favor colocar as importações em ordem alfabética para uma melhor organizaçã
 '''
 
 from ..forms import PersonForm
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 
+@login_required
 def person_form(request):
     if request.method == 'POST':
         form = PersonForm(request.POST or None, request.FILES or None)

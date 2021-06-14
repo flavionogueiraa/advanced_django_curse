@@ -10,6 +10,7 @@ __status__ = "Production"
 Favor colocar as importações em ordem alfabética para uma melhor organização
 '''
 
+from .documento import Documento
 from django.db import models
 
 class Person(models.Model):
@@ -39,6 +40,13 @@ class Person(models.Model):
         verbose_name='Foto',
         upload_to='fotos_clientes/',
         null=True, blank=True
+    )
+
+    documento = models.OneToOneField(
+        Documento,
+        verbose_name='Documento',
+        blank=True, null=True,
+        on_delete=models.CASCADE
     )
 
     def __str__(self):

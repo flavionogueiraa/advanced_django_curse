@@ -3,7 +3,9 @@ Favor colocar as importações em ordem alfabética para uma melhor organizaçã
 '''
 
 from .cliente_admin import ClienteAdmin
+from .documento_admin import DocumentoAdmin
 
 __all__ = [
     ClienteAdmin,
+    DocumentoAdmin,
 ]

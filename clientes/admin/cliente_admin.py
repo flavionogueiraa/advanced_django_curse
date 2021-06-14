@@ -19,6 +19,10 @@ class ClienteAdmin(admin.ModelAdmin):
         'age',
     ]
 
+    autocomplete_fields = [
+        'documento',
+    ]
+
     search_fields = [
         'id',
         'first_name',

@@ -11,6 +11,7 @@ Favor colocar as importações em ordem alfabética para uma melhor organizaçã
 '''
 
 from .cliente import Person
+from .produto import Produto
 from django.db import models
 
 class Venda(models.Model):
@@ -43,6 +44,12 @@ class Venda(models.Model):
         verbose_name='Pessoa',
         blank=True, null=True,
         on_delete=models.SET_NULL
+    )
+
+    produtos = models.ManyToManyField(
+        Produto,
+        verbose_name='Produtos',
+        blank=True
     )
 
     def __str__(self):

@@ -32,3 +32,7 @@ class VendaAdmin(admin.ModelAdmin):
     autocomplete_fields = [
         'pessoa',
     ]
+
+    filter_horizontal = [
+        'produtos',
+    ]

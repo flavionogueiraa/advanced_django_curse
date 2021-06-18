@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Template para a view de classe View</h1>
+    <form action="{% url 'view' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">
+            Enviar
+        </button>
+    </form>
+{% endblock content %}

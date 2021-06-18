@@ -5,7 +5,9 @@ Favor colocar as importações em ordem alfabética para uma melhor organizaçã
 from .views import person_delete
 from .views import person_form
 from .views import person_list
+from .views import PersonList
 from .views import person_update
+from django.contrib.auth.decorators import login_required
 from django.urls import path
 
 urlpatterns = [
@@ -13,4 +15,6 @@ urlpatterns = [
     path('list/', person_list, name='person_list'),
     path('update/<int:id>/', person_update, name='person_update'),
     path('delete/<int:id>/', person_delete, name='person_delete'),
+
+    path('list_cbv/', login_required(PersonList.as_view()), name='person_list_cbv'),
 ]

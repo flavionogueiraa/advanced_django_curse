@@ -15,7 +15,7 @@ def person_form(request):
         if form.is_valid():
             form.save()
             return redirect(reverse_lazy(
-                'person_list'
+                'person_list_cbv'
             ))
     else:
         form = PersonForm(None)

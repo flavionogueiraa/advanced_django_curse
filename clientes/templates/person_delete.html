@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load bootstrap %}
+
 {% block content %}
     <h1>Tem certeza?</h1>
     <form action="{% url 'person_delete' person.id %}" method="POST" enctype="multipart/form-data">

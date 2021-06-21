@@ -13,9 +13,7 @@ def person_delete(request, id):
     
     if request.method == 'POST':
         person.delete()
-        return redirect(reverse_lazy(
-            'person_list'
-        ))
+        return redirect(reverse_lazy('person_list_cbv'))
 
     context = {
         'person': person,

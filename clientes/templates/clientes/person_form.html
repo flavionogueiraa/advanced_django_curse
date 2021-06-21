@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <h1>Nova pessoa</h1>
+        </div>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-12">
+                    {{form|bootstrap}}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <a href="javascript:history.back();" class="btn btn-secondary">Voltar</a>
+                </div>
+                <div class="col-6" style="text-align: end;">
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

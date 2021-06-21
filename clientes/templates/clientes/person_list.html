@@ -12,6 +12,7 @@
                     <a href="{% url 'person_update' person.id %}">Atualizar</a>
                     <a href="{% url 'person_detail_cbv' person.id %}">Detalhes</a>
                     <a href="{% url 'person_delete' person.id %}">Deletar</a>
+                    <hr>
                 {% endfor %}
             </ul>
         </div>
@@ -19,7 +20,7 @@
             <a href="{% url 'logout' %}" class="btn btn-secondary">Sair</a>
         </div>
         <div class="col-6" style="text-align: end;">
-            <a href="{% url 'person_form' %}" class="btn btn-primary">Nova pessoa</a>
+            <a href="{% url 'person_create_cbv' %}" class="btn btn-primary">Nova pessoa</a>
         </div>
     </div>
 {% endblock content %}

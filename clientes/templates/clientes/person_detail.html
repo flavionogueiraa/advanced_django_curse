@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <h1>Detalhes da pessoa {{object}}</h1>
+            <hr>
+        </div>
+        <div class="col-12">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-12">
+                        <h3><b>Nome completo:</b></h3> {{object.first_name}} {{object.last_name}}
+                        <h3><b>Idade:</b></h3> {{object.age}}
+                        <h3><b>Salário:</b></h3> R$ {{object.salary}}
+                        <h3><b>Foto:</b></h3> <a href="{{object.foto.url}}" target="_blank">Visualizar</a>
+                        <h3><b>Documento:</b></h3> {{object.documento|default_if_none:'-'}}
+                    </div>
+                    <hr>
+                    <div class="col-12">
+                        <h3><b>Dia da visualização:</b></h3> {{today|date:'d/m/Y'}}
+                    </div>
+                    <hr>
+                    <div class="col-6 mt-2">
+                        <a href="javascript:history.back();" class="btn btn-secondary">Voltar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

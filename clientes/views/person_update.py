@@ -15,9 +15,7 @@ def person_update(request, id):
 
     if form.is_valid():
         form.save()
-        return redirect(reverse_lazy(
-            'person_list'
-        ))
+        return redirect(reverse_lazy('person_list_cbv'))
 
     context = {
         'form': form,

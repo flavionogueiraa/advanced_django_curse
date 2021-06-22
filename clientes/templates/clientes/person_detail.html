@@ -25,6 +25,9 @@
                     <div class="col-6 mt-2">
                         <a href="javascript:history.back();" class="btn btn-secondary">Voltar</a>
                     </div>
+                    <div class="col-6 mt-2" style="text-align: end;">
+                        <a href="{% url 'person_update_cbv' object.pk %}" class="btn btn-primary">Atualizar</a>
+                    </div>
                 </div>
             </form>
         </div>

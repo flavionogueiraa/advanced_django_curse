@@ -3,6 +3,7 @@ Favor colocar as importações em ordem alfabética para uma melhor organizaçã
 '''
 
 from .views import PersonCreateView
+from .views import PersonDeleteView
 from .views import person_delete
 from .views import PersonDetailView
 from .views import person_form
@@ -23,4 +24,5 @@ urlpatterns = [
     path('detail_cbv/<int:pk>/', login_required(PersonDetailView.as_view()), name='person_detail_cbv'),
     path('create_cbv/', login_required(PersonCreateView.as_view()), name='person_create_cbv'),
     path('update_cbv/<int:pk>/', login_required(PersonUpdateView.as_view()), name='person_update_cbv'),
+    path('person_delete_cbv/<int:pk>/', login_required(PersonDeleteView.as_view()), name='person_delete_cbv'),
 ]

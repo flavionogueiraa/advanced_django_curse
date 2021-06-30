@@ -11,7 +11,7 @@ class MyView(View):
         
         return render(
             request,
-            'view.html',
+            'home/view.html',
             context
         )
     

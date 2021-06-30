@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load filters %}
 
 {% block content %}
     <div class="row">
@@ -13,6 +14,8 @@
                     <a href="{% url 'person_detail_cbv' person.id %}">Detalhes</a>
                     <a href="{% url 'person_delete_cbv' person.id %}">Deletar</a>
                     <hr>
+                {% empty %}
+                    <li>Nenhuma pessoa cadastrada</li>
                 {% endfor %}
             </ul>
         </div>

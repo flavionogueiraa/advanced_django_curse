@@ -1,3 +1,7 @@
+'''
+Favor colocar as importações em ordem alfabética para uma melhor organização
+'''
+
 from django import template
 
 register = template.Library()

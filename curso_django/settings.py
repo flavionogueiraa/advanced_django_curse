@@ -1,5 +1,5 @@
 '''
-Favor colocar os nomes das importações em ordem alfabética para uma melhor organização
+Shift + Alt + O para organizar as importações (vs code)
 '''
 import os
 from decouple import config

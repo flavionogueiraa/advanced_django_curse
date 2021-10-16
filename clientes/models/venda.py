@@ -7,7 +7,7 @@ __email__ = "flavio.nogueira.profissional@gmail.com"
 __status__ = "Production"
 
 '''
-Favor colocar as importações em ordem alfabética para uma melhor organização
+Shift + Alt + O para organizar as importações (vs code)
 '''
 
 from .cliente import Person

@@ -1,5 +1,5 @@
 '''
-Favor colocar as importações em ordem alfabética para uma melhor organização
+Shift + Alt + O para organizar as importações (vs code)
 '''
 
 from .models import Person

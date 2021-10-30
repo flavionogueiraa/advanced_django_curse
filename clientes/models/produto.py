@@ -12,6 +12,7 @@ Shift + Alt + O para organizar as importações (vs code)
 
 from django.db import models
 
+
 class Produto(models.Model):
     '''
     Classe que contém os produtos das vendas

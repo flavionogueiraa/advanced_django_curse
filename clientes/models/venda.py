@@ -10,9 +10,11 @@ __status__ = "Production"
 Shift + Alt + O para organizar as importações (vs code)
 '''
 
+from django.db import models
+
 from .cliente import Person
 from .produto import Produto
-from django.db import models
+
 
 class Venda(models.Model):
     '''

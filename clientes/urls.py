@@ -11,6 +11,9 @@ from .views import person_list
 from .views import PersonList
 from .views import person_update
 from .views import PersonUpdateView
+
+from .views.produto_bulk import ProdutoBulk
+
 from django.contrib.auth.decorators import login_required
 from django.urls import path
 
@@ -25,4 +28,6 @@ urlpatterns = [
     path('create_cbv/', login_required(PersonCreateView.as_view()), name='person_create_cbv'),
     path('update_cbv/<int:pk>/', login_required(PersonUpdateView.as_view()), name='person_update_cbv'),
     path('person_delete_cbv/<int:pk>/', login_required(PersonDeleteView.as_view()), name='person_delete_cbv'),
+
+    path('produto-bulk/', login_required(ProdutoBulk.as_view()), name='produto_bulk'),
 ]

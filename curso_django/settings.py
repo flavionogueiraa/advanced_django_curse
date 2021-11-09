@@ -1,6 +1,7 @@
 '''
 Shift + Alt + O para organizar as importações (vs code)
 '''
+
 import os
 from decouple import config
 from dj_database_url import parse as dburl
@@ -17,6 +18,8 @@ ALLOWED_HOSTS = [
     'localhost',
 ]
 
+INTERNAL_IPS = ['127.0.0.1']
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -29,6 +32,8 @@ INSTALLED_APPS = [
     'home',
 
     'bootstrapform',
+
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -39,6 +44,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'curso_django.urls'
@@ -61,7 +67,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'curso_django.wsgi.application'
 
-default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+default_dburl = 'sqlite:///' + os.path.join(
+    BASE_DIR, 'db.sqlite3'
+)
 
 DATABASES = {
     'default': config(
@@ -103,6 +111,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = 'person_list'
+LOGIN_REDIRECT_URL = 'person_list_cbv'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

@@ -10,7 +10,7 @@
             <form method="POST">
                 {% csrf_token %}
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-sm-12 col-md-12 col-lg-6">
                         <h3><b>Nome completo:</b></h3> {{object.first_name}} {{object.last_name}}
                         <h3><b>Idade:</b></h3> {{object.age}}
                         <h3><b>Salário:</b></h3> R$ {{object.salary}}
@@ -20,6 +20,32 @@
                             <h3><b>Foto:</b></h3> -
                         {% endif %}
                         <h3><b>Documento:</b></h3> {{object.documento|default_if_none:'-'}}
+                    </div>
+                    <hr class="d-lg-none">
+                    <div class="col-sm-12 col-md-12 col-lg-6">
+                        <h3><b>Vendas realizadas</b></h3>
+                        
+                        {% for venda in vendas %}
+                            <h3>Número:</h3> {{venda.numero_venda}}
+                            <h3>Valor:</h3> R$ {{venda.valor}}
+                            <h3>Desconto:</h3> R$ {{venda.desconto}}
+                            <h3>Impostos:</h3> R$ {{venda.impostos}}
+
+                            <h3>Produtos:</h3>
+                            
+                            <ul>
+                                {% for produto in venda.produtos.all %}
+                                    <li>
+                                        {{produto}} {{produto.preco}}
+                                    </li>
+                                {% empty %}
+                                    Nenhum
+                                {% endfor %}
+                            </ul>
+                            <hr>
+                        {% empty %}
+                            Nenhuma
+                        {% endfor %}
                     </div>
                     <hr>
                     <div class="col-12">

@@ -54,6 +54,15 @@ class Venda(models.Model):
         blank=True
     )
 
+    def total(self):
+        total = 0
+        for produto in self.produtos.all():
+            total += produto.preco
+        
+        total -= self.desconto
+        total -= self.impostos
+
+        return total
     def __str__(self):
         return self.numero_venda
     

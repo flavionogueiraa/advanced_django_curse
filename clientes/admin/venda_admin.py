@@ -13,6 +13,7 @@ class VendaAdmin(admin.ModelAdmin):
         'valor',
         'desconto',
         'impostos',
+        'total',
         'pessoa',
     ]
 

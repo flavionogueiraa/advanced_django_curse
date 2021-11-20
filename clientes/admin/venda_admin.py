@@ -17,7 +17,8 @@ class VendaAdmin(admin.ModelAdmin):
     ]
 
     list_filter = [
-        'pessoa',
+        'pessoa__documento',
+        'desconto',
     ]
 
     search_fields = [

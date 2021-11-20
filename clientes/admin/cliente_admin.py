@@ -2,8 +2,10 @@
 Shift + Alt + O para organizar as importações (vs code)
 '''
 
-from ..models import Person
 from django.contrib import admin
+
+from ..models import Person
+
 
 @admin.register(Person)
 class ClienteAdmin(admin.ModelAdmin):

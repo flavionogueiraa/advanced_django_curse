@@ -55,6 +55,11 @@ class Venda(models.Model):
         blank=True
     )
 
+    nota_fiscal_emitida = models.BooleanField(
+        verbose_name='Nota fiscal emitida',
+        default=False
+    )
+
     def atualiza_total(self):
         total = 0
         for produto in self.produtos.all():

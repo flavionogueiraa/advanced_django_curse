@@ -4,6 +4,7 @@ Shift + Alt + O para organizar as importações (vs code)
 
 from django.contrib import admin
 
+from ..actions.venda_actions import cancelar_nota_fiscal, emitir_nota_fiscal
 from ..models import Venda
 
 
@@ -13,10 +14,8 @@ class VendaAdmin(admin.ModelAdmin):
         'id',
         'numero_venda',
         'total',
-        'desconto',
-        'impostos',
-        'total',
         'pessoa',
+        'nota_fiscal_emitida',
     ]
 
     list_filter = [
@@ -43,4 +42,9 @@ class VendaAdmin(admin.ModelAdmin):
 
     readonly_fields = [
         'total',
+    ]
+
+    actions = [
+        cancelar_nota_fiscal,
+        emitir_nota_fiscal,
     ]

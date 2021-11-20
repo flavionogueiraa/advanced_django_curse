@@ -12,7 +12,7 @@ class VendaAdmin(admin.ModelAdmin):
     list_display = [
         'id',
         'numero_venda',
-        'valor',
+        'total',
         'desconto',
         'impostos',
         'total',
@@ -26,7 +26,7 @@ class VendaAdmin(admin.ModelAdmin):
 
     search_fields = [
         'numero_venda',
-        'valor',
+        'total',
         'desconto',
         'impostos',
         'pessoa__first_name',
@@ -39,4 +39,8 @@ class VendaAdmin(admin.ModelAdmin):
 
     filter_horizontal = [
         'produtos',
+    ]
+
+    readonly_fields = [
+        'total',
     ]

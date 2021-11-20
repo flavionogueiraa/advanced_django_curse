@@ -26,9 +26,10 @@ class Venda(models.Model):
         max_length=70
     )
 
-    valor = models.DecimalField(
-        verbose_name='Valor',
-        max_digits=7, decimal_places=2
+    total = models.DecimalField(
+        verbose_name='Total',
+        max_digits=7, decimal_places=2,
+        blank=True, null=True
     )
 
     desconto = models.DecimalField(
@@ -54,7 +55,7 @@ class Venda(models.Model):
         blank=True
     )
 
-    def total(self):
+    def atualiza_total(self):
         total = 0
         for produto in self.produtos.all():
             total += produto.preco
@@ -62,7 +63,9 @@ class Venda(models.Model):
         total -= self.desconto
         total -= self.impostos
 
-        return total
+        self.total = total
+        self.save()
+
     def __str__(self):
         return self.numero_venda
     

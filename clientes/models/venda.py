@@ -49,12 +49,6 @@ class Venda(models.Model):
         on_delete=models.SET_NULL
     )
 
-    produtos = models.ManyToManyField(
-        Produto,
-        verbose_name='Produtos',
-        blank=True
-    )
-
     nota_fiscal_emitida = models.BooleanField(
         verbose_name='Nota fiscal emitida',
         default=False

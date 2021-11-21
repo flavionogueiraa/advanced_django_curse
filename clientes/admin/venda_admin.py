@@ -36,9 +36,9 @@ class VendaAdmin(admin.ModelAdmin):
         'pessoa',
     ]
 
-    filter_horizontal = [
-        'produtos',
-    ]
+    # filter_horizontal = [
+    #     'produtos',
+    # ]
 
     readonly_fields = [
         'total',

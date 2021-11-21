@@ -8,6 +8,6 @@ from django.dispatch import receiver
 from ..models import Venda
 
 
-@receiver(m2m_changed, sender=Venda.produtos.through)
+# @receiver(m2m_changed, sender=Venda.produtos.through)
 def atualiza_total(sender, instance, **kwargs):
     instance.atualiza_total()

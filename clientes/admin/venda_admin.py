@@ -2,27 +2,30 @@
 Shift + Alt + O para organizar as importações (vs code)
 '''
 
-from ..models import Venda
 from django.contrib import admin
+
+from ..actions.venda_actions import cancelar_nota_fiscal, emitir_nota_fiscal
+from ..models import Venda
+
 
 @admin.register(Venda)
 class VendaAdmin(admin.ModelAdmin):
     list_display = [
         'id',
         'numero_venda',
-        'valor',
-        'desconto',
-        'impostos',
+        'total',
         'pessoa',
+        'nota_fiscal_emitida',
     ]
 
     list_filter = [
-        'pessoa',
+        'pessoa__documento',
+        'desconto',
     ]
 
     search_fields = [
         'numero_venda',
-        'valor',
+        'total',
         'desconto',
         'impostos',
         'pessoa__first_name',
@@ -35,4 +38,13 @@ class VendaAdmin(admin.ModelAdmin):
 
     filter_horizontal = [
         'produtos',
+    ]
+
+    readonly_fields = [
+        'total',
+    ]
+
+    actions = [
+        cancelar_nota_fiscal,
+        emitir_nota_fiscal,
     ]

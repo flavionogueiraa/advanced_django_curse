@@ -15,6 +15,7 @@ class ClienteAdmin(admin.ModelAdmin):
         'last_name',
         'age',
         'salary',
+        'possui_foto',
     ]
 
     list_filter = [
@@ -32,3 +33,10 @@ class ClienteAdmin(admin.ModelAdmin):
         'age',
         'salary',
     ]
+
+    def possui_foto(self, obj):
+        if obj and obj.foto:
+            return 'Sim'
+        else:
+            return 'Não'
+    possui_foto.short_description = 'Possui foto'

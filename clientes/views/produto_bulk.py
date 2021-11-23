@@ -4,8 +4,7 @@ Shift + Alt + O para organizar as importações (vs code)
 
 from django.http.response import HttpResponse
 from django.views.generic import View
-
-from ..models import Produto
+from produtos.models import Produto
 
 
 class ProdutoBulk(View):

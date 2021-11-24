@@ -6,4 +6,4 @@ class VendasConfig(AppConfig):
     name = 'vendas'
     
     def ready(self):
-        from vendas import signals
+        import vendas.signals

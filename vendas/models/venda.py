@@ -10,8 +10,11 @@ __status__ = "Production"
 Shift + Alt + O para organizar as importações (vs code)
 '''
 
+from time import time
+
 from clientes.models import Person
 from django.db import models
+from django.db.models import DecimalField, F, Sum
 
 
 class Venda(models.Model):
@@ -32,11 +35,13 @@ class Venda(models.Model):
 
     desconto = models.DecimalField(
         verbose_name='Desconto',
+        default=0,
         max_digits=5, decimal_places=2
     )
 
     impostos = models.DecimalField(
         verbose_name='Impostos',
+        default=0,
         max_digits=4, decimal_places=2
     )
 
@@ -53,13 +58,14 @@ class Venda(models.Model):
     )
 
     def atualiza_total(self):
-        total = 0
-        for produto in self.produtos.all():
-            total += produto.preco
-        
-        total -= self.desconto
-        total -= self.impostos
+        total_itens_venda = self.itemvenda_set.all().aggregate(
+            total = Sum(
+                (F('produto__preco') * F('quantidade')) - F('desconto'),
+                output_field=DecimalField()
+            )
+        )['total'] or 0
 
+        total = total_itens_venda - self.desconto - self.impostos
         self.total = total
         self.save()
 

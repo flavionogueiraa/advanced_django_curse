@@ -3,8 +3,9 @@ Shift + Alt + O para organizar as importações (vs code)
 '''
 
 from django.views.generic.detail import DetailView
+from vendas.models import Venda
 
-from ..models import Person, Venda
+from ..models import Person
 
 
 class PersonDetailView(DetailView):

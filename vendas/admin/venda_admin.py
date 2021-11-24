@@ -6,6 +6,7 @@ from django.contrib import admin
 
 from ..actions.venda_actions import cancelar_nota_fiscal, emitir_nota_fiscal
 from ..models import Venda
+from .item_venda_inline import ItemVendaInline
 
 
 @admin.register(Venda)
@@ -36,10 +37,6 @@ class VendaAdmin(admin.ModelAdmin):
         'pessoa',
     ]
 
-    # filter_horizontal = [
-    #     'produtos',
-    # ]
-
     readonly_fields = [
         'total',
     ]
@@ -47,4 +44,8 @@ class VendaAdmin(admin.ModelAdmin):
     actions = [
         cancelar_nota_fiscal,
         emitir_nota_fiscal,
+    ]
+
+    inlines = [
+        ItemVendaInline,
     ]

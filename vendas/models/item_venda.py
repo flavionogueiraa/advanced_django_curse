@@ -11,8 +11,8 @@ Shift + Alt + O para organizar as importações (vs code)
 '''
 
 from django.db import models
+from produtos.models import Produto
 
-from .produto import Produto
 from .venda import Venda
 
 
@@ -49,6 +49,6 @@ class ItemVenda(models.Model):
         return 'Item {} - Venda {}'.format(self.id, self.venda)
     
     class Meta:
-        app_label='clientes'
+        app_label='vendas'
         verbose_name='Item da venda'
         verbose_name_plural='Itens da venda'

@@ -32,6 +32,6 @@ class Produto(models.Model):
         return self.descricao
     
     class Meta:
-        app_label='clientes'
+        app_label='produtos'
         verbose_name='Produto'
         verbose_name_plural='Produtos'

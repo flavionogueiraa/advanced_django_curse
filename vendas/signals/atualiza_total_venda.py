@@ -11,5 +11,5 @@ from ..models import Venda
 @receiver(post_save, sender=Venda)
 def atualiza_total_venda(sender, instance, **kwargs):
     post_save.disconnect(atualiza_total_venda, sender=Venda)
-    instance.teste_velocidade()
+    instance.atualiza_total()
     post_save.connect(atualiza_total_venda, sender=Venda)

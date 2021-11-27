@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}
+{% endblock extra_css %}
+
+{% block content %}
+<h1>Dashboard</h1>
+
+<ul>
+    <li>Ticked médio: {{media_valor}}</li>
+    <li>Desconto médio: {{media_desconto}}</li>
+    <li>Menor venda: {{menor_venda}}</li>
+    <li>Maior venda: {{maior_venda}}</li>
+    <li>Total de vendas: {{total_vendas}}</li>
+    <li>Total de vendas com a nota fiscal emitida: {{total_vendas_com_nota_fiscal_emitida}}</li>
+</ul>
+{% endblock content %}
+
+{% block extra_js %}
+{% endblock extra_js %}

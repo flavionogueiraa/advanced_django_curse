@@ -16,6 +16,8 @@ from clientes.models import Person
 from django.db import models
 from django.db.models import DecimalField, F, Sum
 
+from ..managers import VendaManager
+
 
 class Venda(models.Model):
     '''
@@ -68,6 +70,8 @@ class Venda(models.Model):
         total = total_itens_venda - self.desconto - self.impostos
         self.total = total
         self.save()
+    
+    objects = VendaManager()
 
     def __str__(self):
         return self.numero_venda

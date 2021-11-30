@@ -11,35 +11,20 @@ from ..models import Venda
 
 class DashboardView(View):
     def get(self, request):
-        media_valor = Venda.objects.all().aggregate(
-            valor_medio=Avg('total')
-        )['valor_medio'] or 0
-        
-        media_desconto = Venda.objects.all().aggregate(
-            valor_medio=Avg('desconto')
-        )['valor_medio'] or 0
-
-        menor_venda = Venda.objects.all().aggregate(
-            menor_valor=Min('total')
-        )['menor_valor'] or 0
-
-        maior_venda = Venda.objects.all().aggregate(
-            maior_valor=Max('total')
-        )['maior_valor'] or 0
-
-        total_vendas = Venda.objects.all().count()
-        
-        total_vendas_com_nota_fiscal_emitida = Venda.objects.filter(
-            nota_fiscal_emitida=True
-        ).count()
+        media_valor = Venda.objects.media()
+        media_desconto = Venda.objects.media_desconto()
+        menor_valor_venda = Venda.objects.menor_valor_venda()
+        maior_valor_venda = Venda.objects.maior_valor_venda()
+        quantidade_total_vendas = Venda.objects.quantidade_total_vendas()
+        quantidade_total_vendas_com_nota_fiscal_emitida = Venda.objects.quantidade_total_vendas_com_nota_fiscal_emitida()
 
         context = {
             'media_valor': media_valor,
             'media_desconto': media_desconto,
-            'menor_venda': menor_venda,
-            'maior_venda': maior_venda,
-            'total_vendas': total_vendas,
-            'total_vendas_com_nota_fiscal_emitida': total_vendas_com_nota_fiscal_emitida
+            'menor_valor_venda': menor_valor_venda,
+            'maior_valor_venda': maior_valor_venda,
+            'quantidade_total_vendas': quantidade_total_vendas,
+            'quantidade_total_vendas_com_nota_fiscal_emitida': quantidade_total_vendas_com_nota_fiscal_emitida
         }
         
         return render(

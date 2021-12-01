@@ -2,13 +2,19 @@
 Shift + Alt + O para organizar as importações (vs code)
 '''
 
-from ..forms import PersonForm
 from django.contrib.auth.decorators import login_required
+from django.http.response import HttpResponseForbidden
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 
+from ..forms import PersonForm
+
+
 @login_required
 def person_form(request):
+    if not request.user.has_perm('clientes.add_cliente'):
+        return HttpResponseForbidden()
+    
     if request.method == 'POST':
         form = PersonForm(request.POST or None, request.FILES or None)
 
@@ -26,6 +32,6 @@ def person_form(request):
 
     return render(
         request,
-        'person_form.html',
+        'clientes/person_form.html',
         context
     )

@@ -20,9 +20,12 @@
 
             
         <footer class="footer">
-            <div class="row" style="text-align: end;">
-                <div class="col-12 small">
-                    <hr>
+            <div class="row">
+                <hr>
+                <div class="col-6 small">
+                    <a href="{% url 'admin:index' %}">Admin</a>
+                </div>
+                <div class="col-6 small" style="text-align: end;">
                     Data e hora do servidor: <br>
                     {% now 'd/m/Y H:i' %}
                 </div>

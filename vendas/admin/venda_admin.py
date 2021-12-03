@@ -49,3 +49,11 @@ class VendaAdmin(admin.ModelAdmin):
     inlines = [
         ItemVendaInline,
     ]
+
+    def get_actions(self, request):
+        actions = super().get_actions(request)
+        if not request.user.has_perm('vendas.alterar_nota_fiscal'):
+            actions.pop('cancelar_nota_fiscal')
+            actions.pop('emitir_nota_fiscal')
+        
+        return actions

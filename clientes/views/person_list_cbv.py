@@ -2,8 +2,11 @@
 Shift + Alt + O para organizar as importações (vs code)
 '''
 
-from ..models import Person
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.list import ListView
 
-class PersonList(ListView):
+from ..models import Person
+
+
+class PersonList(LoginRequiredMixin, ListView):
     model = Person

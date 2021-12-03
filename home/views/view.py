@@ -2,10 +2,12 @@
 Shift + Alt + O para organizar as importações (vs code)
 '''
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import HttpResponse, render
 from django.views.generic.base import View
 
-class MyView(View):
+
+class MyView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         context = {}
         

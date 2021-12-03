@@ -2,12 +2,13 @@
 Shift + Alt + O para organizar as importações (vs code)
 '''
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http.response import HttpResponse
 from django.views.generic import View
 from produtos.models import Produto
 
 
-class ProdutoBulk(View):
+class ProdutoBulk(LoginRequiredMixin, View):
     def get(self, request):
         produtos = [
             'Uva', 'Banana', 'Pera', 'Maçã',

@@ -2,13 +2,14 @@
 Shift + Alt + O para organizar as importações (vs code)
 '''
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.detail import DetailView
 from vendas.models import Venda
 
 from ..models import Person
 
 
-class PersonDetailView(DetailView):
+class PersonDetailView(LoginRequiredMixin, DetailView):
     model = Person
 
     def get_object(self, queryset=None):

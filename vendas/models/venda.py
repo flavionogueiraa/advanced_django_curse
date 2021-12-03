@@ -77,6 +77,10 @@ class Venda(models.Model):
         return self.numero_venda
     
     class Meta:
-        app_label='clientes'
+        app_label='vendas'
         verbose_name='Venda'
         verbose_name_plural='Vendas'
+        permissions = [
+            ('alterar_nota_fiscal', 'Pode alterar o status de uma nota fiscal'),
+            ('visualizar_dashboard', 'Pode visualizar o dashboard'),
+        ]

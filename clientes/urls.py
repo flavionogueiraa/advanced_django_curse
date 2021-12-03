@@ -14,7 +14,6 @@ from .views import PersonUpdateView
 
 from .views.produto_bulk import ProdutoBulk
 
-from django.contrib.auth.decorators import login_required
 from django.urls import path
 
 urlpatterns = [
@@ -23,11 +22,11 @@ urlpatterns = [
     path('update/<int:id>/', person_update, name='person_update'),
     path('delete/<int:id>/', person_delete, name='person_delete'),
 
-    path('list_cbv/', login_required(PersonList.as_view()), name='person_list_cbv'),
-    path('detail_cbv/<int:pk>/', login_required(PersonDetailView.as_view()), name='person_detail_cbv'),
-    path('create_cbv/', login_required(PersonCreateView.as_view()), name='person_create_cbv'),
-    path('update_cbv/<int:pk>/', login_required(PersonUpdateView.as_view()), name='person_update_cbv'),
-    path('person_delete_cbv/<int:pk>/', login_required(PersonDeleteView.as_view()), name='person_delete_cbv'),
+    path('list_cbv/', PersonList.as_view(), name='person_list_cbv'),
+    path('detail_cbv/<int:pk>/', PersonDetailView.as_view(), name='person_detail_cbv'),
+    path('create_cbv/', PersonCreateView.as_view(), name='person_create_cbv'),
+    path('update_cbv/<int:pk>/', PersonUpdateView.as_view(), name='person_update_cbv'),
+    path('person_delete_cbv/<int:pk>/', PersonDeleteView.as_view(), name='person_delete_cbv'),
 
-    path('produto-bulk/', login_required(ProdutoBulk.as_view()), name='produto_bulk'),
+    path('produto-bulk/', ProdutoBulk.as_view(), name='produto_bulk'),
 ]

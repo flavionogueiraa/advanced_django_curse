@@ -82,4 +82,5 @@ class Venda(models.Model):
         verbose_name_plural='Vendas'
         permissions = [
             ('alterar_nota_fiscal', 'Pode alterar o status de uma nota fiscal'),
+            ('visualizar_dashboard', 'Pode visualizar o dashboard'),
         ]

@@ -2,8 +2,10 @@
 Shift + Alt + O para organizar as importações (vs code)
 '''
 
-from ..models import Produto
 from django.contrib import admin
+
+from ..models import Produto
+
 
 @admin.register(Produto)
 class ProdutoAdmin(admin.ModelAdmin):

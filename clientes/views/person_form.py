@@ -3,7 +3,7 @@ Shift + Alt + O para organizar as importações (vs code)
 '''
 
 from django.contrib.auth.decorators import login_required
-from django.http.response import HttpResponseForbidden
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 
@@ -13,7 +13,7 @@ from ..forms import PersonForm
 @login_required
 def person_form(request):
     if not request.user.has_perm('clientes.add_cliente'):
-        return HttpResponseForbidden()
+        raise PermissionDenied()
     
     if request.method == 'POST':
         form = PersonForm(request.POST or None, request.FILES or None)

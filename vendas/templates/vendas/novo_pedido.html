@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}
+{% endblock extra_css %}
+
+{% block content %}
+    <h1>Novo pedido</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <h2>Cabeçalho do pedido</h2>
+        <input type="text" name="numero" class="form-control">
+        <input type="text" name="desconto" class="form-control">
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+{% endblock content %}
+
+{% block extra_js %}
+{% endblock extra_js %}

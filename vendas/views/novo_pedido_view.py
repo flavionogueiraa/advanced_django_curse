@@ -8,6 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, render
 from django.views.generic.base import View
 
+from ..forms import ItemVendaForm
 from ..models import Venda
 
 
@@ -18,7 +19,7 @@ class NovoPedidoView(LoginRequiredMixin, View):
             'vendas/novo_pedido.html'
         )
 
-    def post(self, request):
+    def post(self, request, id_venda):
         context = {}
         context['numero_venda'] = request.POST.get('numero_venda', None)
         context['desconto'] = request.POST.get('desconto', None)

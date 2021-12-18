@@ -3,6 +3,7 @@ Shift + Alt + O para organizar as importações (vs code)
 '''
 
 from .api import api
+from .api_view import ApiView
 from .person_create_cbv import PersonCreateView
 from .person_delete import person_delete
 from .person_delete_cbv import PersonDeleteView
@@ -15,6 +16,7 @@ from .person_update_cbv import PersonUpdateView
 
 __all__ = [
     api,
+    ApiView,
     PersonCreateView,
     PersonDeleteView,
     person_delete,

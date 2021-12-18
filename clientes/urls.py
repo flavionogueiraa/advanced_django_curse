@@ -4,9 +4,9 @@ Shift + Alt + O para organizar as importações (vs code)
 
 from django.urls import path
 
-from .views import (PersonCreateView, PersonDeleteView, PersonDetailView,
-                    PersonList, PersonUpdateView, api, person_delete,
-                    person_form, person_list, person_update)
+from .views import (ApiView, PersonCreateView, PersonDeleteView,
+                    PersonDetailView, PersonList, PersonUpdateView, api,
+                    person_delete, person_form, person_list, person_update)
 from .views.produto_bulk import ProdutoBulk
 
 urlpatterns = [
@@ -24,4 +24,5 @@ urlpatterns = [
     path('produto-bulk/', ProdutoBulk.as_view(), name='produto_bulk'),
 
     path('api/', api, name='api'),
+    path('api_view/', ApiView.as_view(), name='api_view'),
 ]

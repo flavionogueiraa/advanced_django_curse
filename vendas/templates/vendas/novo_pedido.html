@@ -7,12 +7,41 @@
     <h1>Novo pedido</h1>
     <form method="POST">
         {% csrf_token %}
-        <h2>Cabeçalho do pedido</h2>
-        <input type="text" name="numero" class="form-control">
-        <input type="text" name="desconto" class="form-control">
+        <h2>Cabeçalho do pedido {{venda.numero_venda}}</h2>
+        
+        <label for="numero_venda">Número</label>
+        <input type="text" name="numero_venda" class="form-control" value="{{numero_venda}}">
+        
+        <label for="desconto">Desconto</label>
+        <input type="text" name="desconto" class="form-control" value="{{desconto}}">
+        <input type="hidden" name="venda_id" value="{{venda.id}}">
 
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
+
+    <div class="row">
+        <h2>Itens da venda</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Desconto</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in venda.itemvenda_set.all %}
+                    <tr>
+                        <td>{{item.id}}</td>
+                        <td>{{item.produto}}</td>
+                        <td>{{item.quantidade}}</td>
+                        <td>{{item.desconto}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock content %}
 
 {% block extra_js %}

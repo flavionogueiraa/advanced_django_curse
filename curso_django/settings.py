@@ -25,7 +25,8 @@ ADMINS = [
 ]
 
 INSTALLED_APPS = [
-    'grappelli',
+    # 'grappelli',
+    # 'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sites',

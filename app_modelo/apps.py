@@ -6,4 +6,4 @@ class AppModeloConfig(AppConfig):
     name = 'app_modelo'
 
     def ready(self):
-        from app_modelo import signals
+        import app_modelo.signals

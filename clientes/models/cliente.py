@@ -10,8 +10,10 @@ __status__ = "Production"
 Shift + Alt + O para organizar as importações (vs code)
 '''
 
-from .documento import Documento
 from django.db import models
+
+from .documento import Documento
+
 
 class Person(models.Model):
     '''
@@ -49,6 +51,12 @@ class Person(models.Model):
         on_delete=models.CASCADE
     )
 
+    telefone = models.CharField(
+        verbose_name='Telefone',
+        max_length=20,
+        null=True, blank=True
+    )
+
     def __str__(self):
         return '{} {}'.format(self.first_name, self.last_name)
     
@@ -56,3 +64,6 @@ class Person(models.Model):
         app_label='clientes'
         verbose_name='Cliente'
         verbose_name_plural='Clientes'
+        unique_together = [
+            ('first_name', 'telefone'),
+        ]

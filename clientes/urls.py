@@ -2,19 +2,12 @@
 Shift + Alt + O para organizar as importações (vs code)
 '''
 
-from .views import PersonCreateView
-from .views import PersonDeleteView
-from .views import person_delete
-from .views import PersonDetailView
-from .views import person_form
-from .views import person_list
-from .views import PersonList
-from .views import person_update
-from .views import PersonUpdateView
-
-from .views.produto_bulk import ProdutoBulk
-
 from django.urls import path
+
+from .views import (PersonCreateView, PersonDeleteView, PersonDetailView,
+                    PersonList, PersonUpdateView, api, person_delete,
+                    person_form, person_list, person_update)
+from .views.produto_bulk import ProdutoBulk
 
 urlpatterns = [
     path('create/', person_form, name='person_form'),
@@ -29,4 +22,6 @@ urlpatterns = [
     path('person_delete_cbv/<int:pk>/', PersonDeleteView.as_view(), name='person_delete_cbv'),
 
     path('produto-bulk/', ProdutoBulk.as_view(), name='produto_bulk'),
+
+    path('api/', api, name='api'),
 ]

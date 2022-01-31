@@ -1,6 +1,4 @@
-'''
-Shift + Alt + O para organizar as importações (vs code)
-'''
+#Shift + Alt + O para organizar as importações (vs code)
 
 class MensagemUsuario(object):
     def __init__(self, get_response):

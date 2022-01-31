@@ -1,6 +1,4 @@
-'''
-Shift + Alt + O para organizar as importações (vs code)
-'''
+#Shift + Alt + O para organizar as importações (vs code)
 
 from .home import home
 from .home3 import Home3

@@ -6,9 +6,7 @@ __maintainer__ = "Francisco Flávio Nogueira da Silva"
 __email__ = "flavio.nogueira.profissional@gmail.com"
 __status__ = "Production"
 
-'''
-Shift + Alt + O para organizar as importações (vs code)
-'''
+#Shift + Alt + O para organizar as importações (vs code)
 
 from django.db import models
 

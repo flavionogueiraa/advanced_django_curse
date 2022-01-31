@@ -1,6 +1,4 @@
-'''
-Shift + Alt + O para organizar as importações (vs code)
-'''
+#Shift + Alt + O para organizar as importações (vs code)
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.forms.models import model_to_dict

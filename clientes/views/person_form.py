@@ -1,6 +1,4 @@
-'''
-Shift + Alt + O para organizar as importações (vs code)
-'''
+#Shift + Alt + O para organizar as importações (vs code)
 
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied

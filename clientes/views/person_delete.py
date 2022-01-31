@@ -1,6 +1,4 @@
-'''
-Shift + Alt + O para organizar as importações (vs code)
-'''
+#Shift + Alt + O para organizar as importações (vs code)
 
 from ..models import Person
 from django.contrib.auth.decorators import login_required

@@ -1,6 +1,4 @@
-'''
-Shift + Alt + O para organizar as importações (vs code)
-'''
+#Shift + Alt + O para organizar as importações (vs code)
 
 from .item_venda_admin import ItemVendaAdmin
 from .item_venda_inline import ItemVendaInline
